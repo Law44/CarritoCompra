@@ -30,4 +30,22 @@ public  class Widget {
     public static void errorNum(){
         System.out.println("\033[31mERROR, introduzca un numero \033[0m");
     }
+
+    public static String introString(String text) {
+        System.out.println(text);
+        return sc.nextLine();
+    }
+
+    static Double introDouble(String text){
+        double resultado = 0;
+        String resultadoSt= sc.nextLine();
+        try {
+            resultado = Double.parseDouble(resultadoSt);
+        }catch (Exception IO){
+            errorNum();
+            introDouble(text);
+        }
+
+        return resultado;
+    }
 }

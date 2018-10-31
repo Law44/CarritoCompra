@@ -3,6 +3,13 @@ package com.company;
 public class Textil extends Producto {
     private String Composicion;
 
+    public Textil(String nombre,Double precio, String composicion, String codigoBarras) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.Composicion = composicion;
+        this.codigoBarras = codigoBarras;
+    }
+
     public double getPrecio(){
         return precio;
     }

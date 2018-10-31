@@ -3,12 +3,19 @@ package com.company;
 public class Electronica extends Producto{
     private int garantia;
 
+    public Electronica(String nombre,Double precio, int garantia, String codigoBarras) {
+        this.nombre = nombre;
+        this.garantia = garantia;
+        this.precio =  precio + precio* (double)(garantia/365)*0.1;
+        this.codigoBarras = codigoBarras;
+    }
+
     public double getPrecio(){
         return precio;
     }
 
     public void setPrecio(double precio){
-        this.precio = precio + precio*(garantia/365)*0.1;
+        this.precio = precio;
     }
 
     public void setNombre(String nombre){
