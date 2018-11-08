@@ -3,38 +3,39 @@ package com.company;
 public class Electronica extends Producto{
     private int garantia;
 
-    public Electronica(String nombre,Double precio, int garantia, String codigoBarras) {
-        this.nombre = nombre;
-        this.garantia = garantia;
-        this.precio =  precio + precio* (double)(garantia/365)*0.1;
-        this.codigoBarras = codigoBarras;
+    public Electronica(String _nombre,Double _precio, int _garantia, String _codigoBarras) {
+        super.setNombre(_nombre);
+        this.garantia = _garantia;
+        super.setPrecio(  _precio + _precio* (double)(garantia/365)*0.1);
+        super.setCodigoBarras( _codigoBarras);
     }
+
 
     public double getPrecio(){
-        return precio;
+        return super.getPrecio();
     }
 
-    public void setPrecio(double precio){
-        this.precio = precio;
+    public void setPrecio(double _precio){
+        super.setPrecio(_precio);
     }
 
-    public void setNombre(String nombre){
-        this.nombre = nombre;
+    public void setNombre(String _nombre){
+        super.setNombre(_nombre);
     }
 
     public String getNombre(){
-        return nombre;
+        return super.getNombre();
     }
 
-    public void setCodigoBarras(String codigoBarras){
-        this.codigoBarras = codigoBarras;
+    public void setCodigoBarras(String _codigoBarras){
+        super.setCodigoBarras( _codigoBarras);
     }
 
     public String getCodigoBarras(){
-        return codigoBarras;
+        return super.getCodigoBarras();
     }
 
-    public  int getCantidad(){ return cantidad; }
+    public  int getCantidad(){ return super.getCantidad(); }
 
-    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad;  }
+    public  void setCantidad(int _cantidad ){super.setCantidad( _cantidad) ;}
 }
