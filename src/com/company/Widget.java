@@ -38,12 +38,32 @@ public  class Widget {
 
     static Double introDouble(String text){
         double resultado = 0;
+        System.out.println(text);
         String resultadoSt= sc.nextLine();
         try {
             resultado = Double.parseDouble(resultadoSt);
         }catch (Exception IO){
             errorNum();
             introDouble(text);
+        }
+
+        return resultado;
+    }
+
+    static int introNumero(String text){
+        System.out.println(text);
+        int resultado;
+
+        linea=text.split(",");
+
+        for (int i = 1; i < linea.length; i++) {
+            System.out.println(i+"-"+linea[i]);
+        }
+        String resultadoSt= sc.nextLine();
+        try {
+            resultado = Integer.parseInt(resultadoSt);
+        }catch (Exception IO){
+            resultado=-1;
         }
 
         return resultado;

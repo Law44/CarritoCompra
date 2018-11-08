@@ -8,7 +8,8 @@ import java.time.format.DateTimeFormatter;
 public class Alimentacion extends Producto{
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate caducidad;
-    private LocalDate actual = LocalDate.parse(String.valueOf(LocalDate.now()), formatter);
+    private String actualString = LocalDate.now().format(formatter);
+    private LocalDate actual = LocalDate.parse(actualString, formatter);
     private Period diferencia;
 
     public Alimentacion(String nombre,Double precio, String caducidad, String codigoBarras) {
