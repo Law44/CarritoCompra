@@ -36,10 +36,6 @@ public class Management {
     }
 
 
-
-
-
-
     public void calcularPrecioTiquet(){
 
         for (int i = 0; i < alimentacions.size(); i++) {
