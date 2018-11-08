@@ -2,35 +2,12 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-public class Management {
-    ArrayList<Alimentacion> listaAlimentacion = new ArrayList<>();
-    ArrayList<Electronica> listaElectronica = new ArrayList<>();
-    ArrayList<Textil> listaTextil = new ArrayList<>();
-    Scanner scan = new Scanner(System.in);
-
-    public void AñadirAlimento(String nombre,Double precio, String caducidad, String codigoBarras){
-        Alimentacion alimento = new Alimentacion(nombre, precio, caducidad, codigoBarras);
-        listaAlimentacion.add(alimento);
-    }
-
-    public void AñadirTextil (String nombre,Double precio, String composicion, String codigoBarras){
-        Textil textil = new Textil(nombre, precio, composicion, codigoBarras);
-        listaTextil.add(textil);
-    }
-
-    public void AñadirElectronica (String nombre,Double precio, int garantia, String codigoBarras){
-        Electronica electronica = new Electronica(nombre, precio, garantia, codigoBarras);
-        listaElectronica.add(electronica);
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Management {
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private String actualString = LocalDate.now().format(formatter);
-    private LocalDate actual = LocalDate.parse(actualString, formatter);
+public class Management {
 
     ArrayList<Alimentacion> alimentacions = new ArrayList<>();
     ArrayList<Electronica> electronicas = new ArrayList<>();
@@ -38,29 +15,38 @@ public class Management {
 
     ArrayList<Producto> compraFinal = new ArrayList<>();
 
-    void anadirAlimentos (){
-        Electronica a = new Electronica("queso");
-        a.setPrecio(20);
-        a.setCodigoBarras("012");
-        Electronica b = new Electronica("queso");
-        b.setPrecio(20);
-        b.setCodigoBarras("013");
-        Electronica c = new Electronica("queso");
-        c.setPrecio(20);
-        c.setCodigoBarras("012");
 
-        electronicas.add(a);
-        electronicas.add(c);
-        electronicas.add(b);
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private String actualString = LocalDate.now().format(formatter);
+    private LocalDate actual = LocalDate.parse(actualString, formatter);
 
+    public void AñadirAlimento(String nombre,Double precio, String caducidad, String codigoBarras){
+        Alimentacion alimento = new Alimentacion(nombre, precio, caducidad, codigoBarras);
+        alimentacions.add(alimento);
     }
+
+    public void AñadirTextil (String nombre,Double precio, String composicion, String codigoBarras){
+        Textil textil = new Textil(nombre, precio, composicion, codigoBarras);
+        textils.add(textil);
+    }
+
+    public void AñadirElectronica (String nombre,Double precio, int garantia, String codigoBarras) {
+        Electronica electronica = new Electronica(nombre, precio, garantia, codigoBarras);
+        electronicas.add(electronica);
+    }
+
+
+
+
+
+
     public void calcularPrecioTiquet(){
 
         for (int i = 0; i < alimentacions.size(); i++) {
-            for (int j = 0; j < alimentacions.size(); j++) {
+            for (int j = i+1; j < alimentacions.size(); j++) {
                 if (alimentacions.get(i).getCodigoBarras().equals(alimentacions.get(j).getCodigoBarras())
                         && alimentacions.get(i).getPrecio() == alimentacions.get(j).getPrecio()){
-                    alimentacions.get(i).setCantidad();
+                    alimentacions.get(i).setCantidad(alimentacions.get(i).getCantidad()+1);
                     alimentacions.remove(j);
                 }
             }
@@ -79,10 +65,10 @@ public class Management {
         }
 
         for (int i = 0; i < textils.size(); i++) {
-            for (int j = 0; j < textils.size(); j++) {
+            for (int j = i+1; j < textils.size(); j++) {
                 if (textils.get(i).getCodigoBarras().equals(textils.get(j).getCodigoBarras())
                         && textils.get(i).getPrecio() == textils.get(j).getPrecio()){
-                    textils.get(i).setCantidad();
+                    textils.get(i).setCantidad(textils.get(i).getCantidad()+1);
                     textils.remove(j);
                 }
             }

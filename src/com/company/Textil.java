@@ -44,7 +44,7 @@ public class Textil extends Producto {
 
     public  int getCantidad(){ return cantidad; }
 
-    public  void setCantidad( ){this.cantidad = getCantidad()+1;  }
+    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad;  }
 
 }
 

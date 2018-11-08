@@ -16,7 +16,7 @@ public class Alimentacion extends Producto{
         this.nombre = nombre;
         this.caducidad = LocalDate.parse(caducidad, formatter);
         diferencia = Period.between(this.caducidad, actual);
-        this.precio = precio - precio*(double)(1/(diferencia.getDays())) + (precio * 0.1);
+        this.precio = precio /*- precio*(double)(1/(diferencia.getDays())) + (precio * 0.1)*/;
         this.codigoBarras = codigoBarras;
     }
 
@@ -54,5 +54,5 @@ public class Alimentacion extends Producto{
 
     public  int getCantidad(){ return cantidad; }
 
-    public  void setCantidad( ){this.cantidad = getCantidad()+1;  }
+    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad ;}
 }
