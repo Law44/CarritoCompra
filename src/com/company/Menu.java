@@ -16,7 +16,8 @@ public class Menu {
                 }while (op2!=4);
                 break;
             case 2:
-                /*Pasar por caja*/
+                management.calcularPrecioTiquet();
+
                 break;
             case 3:
                 /*Mostrar el carro*/
@@ -59,6 +60,7 @@ public class Menu {
                 );
                 break;
             case 4:
+                /* Despedidad */
                 break;
             default:
                 Widget.errorMenu();

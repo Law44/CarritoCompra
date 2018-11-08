@@ -41,5 +41,10 @@ public class Textil extends Producto {
     public void setComposicion(String composicion) {
         Composicion = composicion;
     }
+
+    public  int getCantidad(){ return cantidad; }
+
+    public  void setCantidad( ){this.cantidad = getCantidad()+1;  }
+
 }
 

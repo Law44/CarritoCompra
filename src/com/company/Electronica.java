@@ -34,11 +34,7 @@ public class Electronica extends Producto{
         return codigoBarras;
     }
 
-    public int getGarantia() {
-        return garantia;
-    }
+    public  int getCantidad(){ return cantidad; }
 
-    public void setGarantia(int garantia) {
-        this.garantia = garantia;
-    }
+    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad;  }
 }

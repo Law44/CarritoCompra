@@ -51,4 +51,8 @@ public class Alimentacion extends Producto{
     public String getCodigoBarras(){
         return codigoBarras;
     }
+
+    public  int getCantidad(){ return cantidad; }
+
+    public  void setCantidad( ){this.cantidad = getCantidad()+1;  }
 }
