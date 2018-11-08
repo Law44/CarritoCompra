@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Managment {
+public class Management {
     ArrayList<Alimentacion> listaAlimentacion = new ArrayList<>();
     ArrayList<Electronica> listaElectronica = new ArrayList<>();
     ArrayList<Textil> listaTextil = new ArrayList<>();
