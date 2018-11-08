@@ -1,8 +1,11 @@
 package com.company;
 
 public class Menu {
+    Management management = new Management();
+
 
     int menuGeneral(){
+        management.anadirAlimentos();
         int op;
         op=Widget.menuNumero("Que deseas hacer?, Introducir producto, Pasar por caja, Mostrar carro de la compra, Salir");
 
@@ -15,7 +18,8 @@ public class Menu {
                 }while (op2!=4);
                 break;
             case 2:
-                /*Pasar por caja*/
+                management.calcularPrecioTiquet();
+
                 break;
             case 3:
                 /*Mostrar el carro*/
@@ -37,6 +41,7 @@ public class Menu {
 
         switch (op){
             case 1:
+
                 /*Alimentación*/
                 break;
             case 2:
