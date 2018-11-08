@@ -18,6 +18,7 @@ public class Alimentacion extends Producto{
         diferencia = Period.between(this.caducidad, actual);
         setPrecio(_precio /*- precio*(double)(1/(diferencia.getDays())) + (precio * 0.1)*/);
         setCodigoBarras(_codigoBarras);
+
     }
 
     public LocalDate getCaducidad() {
