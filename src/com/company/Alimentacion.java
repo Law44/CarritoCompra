@@ -12,20 +12,12 @@ public class Alimentacion extends Producto{
     private LocalDate actual = LocalDate.parse(actualString, formatter);
     private Period diferencia;
 
-    public Alimentacion(String nombre,Double precio, String caducidad, String codigoBarras) {
-        this.nombre = nombre;
+    public Alimentacion(String _nombre,Double _precio, String caducidad, String _codigoBarras) {
+        setNombre(_nombre);
         this.caducidad = LocalDate.parse(caducidad, formatter);
         diferencia = Period.between(this.caducidad, actual);
-        int diferenciaDias;
-        if (diferencia.getDays() < 0) {
-            diferenciaDias = 0;
-        }
-        else {
-            diferenciaDias = diferencia.getDays();
-        }
-        System.out.println(diferenciaDias);
-        this.precio = precio - precio *(double)(1/(diferenciaDias+1)) + (precio * 0.1);
-        this.codigoBarras = codigoBarras;
+        setPrecio(_precio /*- precio*(double)(1/(diferencia.getDays())) + (precio * 0.1)*/);
+        setCodigoBarras(_codigoBarras);
     }
 
     public LocalDate getCaducidad() {
@@ -37,30 +29,30 @@ public class Alimentacion extends Producto{
     }
 
     public double getPrecio(){
-        return precio;
+        return super.getPrecio();
     }
 
-    public void setPrecio(double precio){
-        this.precio = precio;
+    public void setPrecio(double _precio){
+        super.setPrecio(_precio);
     }
 
-    public void setNombre(String nombre){
-        this.nombre = nombre;
+    public void setNombre(String _nombre){
+        super.setNombre(_nombre);
     }
 
     public String getNombre(){
-        return nombre;
+        return super.getNombre();
     }
 
-    public void setCodigoBarras(String codigoBarras){
-        this.codigoBarras = codigoBarras;
+    public void setCodigoBarras(String _codigoBarras){
+        super.setCodigoBarras( _codigoBarras);
     }
 
     public String getCodigoBarras(){
-        return codigoBarras;
+        return super.getCodigoBarras();
     }
 
-    public  int getCantidad(){ return cantidad; }
+    public  int getCantidad(){ return super.getCantidad(); }
 
-    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad ;}
+    public  void setCantidad(int _cantidad ){super.setCantidad( _cantidad) ;}
 }

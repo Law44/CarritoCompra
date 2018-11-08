@@ -3,36 +3,40 @@ package com.company;
 public class Textil extends Producto {
     private String Composicion;
 
-    public Textil(String nombre,Double precio, String composicion, String codigoBarras) {
-        this.nombre = nombre;
-        this.precio = precio;
+    public Textil(String _nombre,Double _precio, String composicion, String _codigoBarras) {
+        super.setNombre(_nombre);
         this.Composicion = composicion;
-        this.codigoBarras = codigoBarras;
+        super.setPrecio(_precio);
+        super.setCodigoBarras( _codigoBarras);
     }
 
     public double getPrecio(){
-        return precio;
+        return super.getPrecio();
     }
 
-    public void setPrecio(double precio){
-        this.precio = precio;
+    public void setPrecio(double _precio){
+        super.setPrecio(_precio);
     }
 
-    public void setNombre(String nombre){
-        this.nombre = nombre;
+    public void setNombre(String _nombre){
+        super.setNombre(_nombre);
     }
 
     public String getNombre(){
-        return nombre;
+        return super.getNombre();
     }
 
-    public void setCodigoBarras(String codigoBarras){
-        this.codigoBarras = codigoBarras;
+    public void setCodigoBarras(String _codigoBarras){
+        super.setCodigoBarras( _codigoBarras);
     }
 
     public String getCodigoBarras(){
-        return codigoBarras;
+        return super.getCodigoBarras();
     }
+
+    public  int getCantidad(){ return super.getCantidad(); }
+
+    public  void setCantidad(int _cantidad ){super.setCantidad( _cantidad) ;}
 
     public String getComposicion() {
         return Composicion;
@@ -42,9 +46,6 @@ public class Textil extends Producto {
         Composicion = composicion;
     }
 
-    public  int getCantidad(){ return cantidad; }
-
-    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad;  }
 
 }
 

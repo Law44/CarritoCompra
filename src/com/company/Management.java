@@ -77,7 +77,7 @@ public class Management {
         String resultado = actualString+"  |  MEGAMERCADOHOME\n" +
                 "----------------------------------------------------\n";
         for (int i = 0; i < compraFinal.size(); i++) {
-            resultado+=(compraFinal.get(i).nombre +"   "+ compraFinal.get(i).codigoBarras+"   "+compraFinal.get(i).cantidad+"   "+compraFinal.get(i).precio*compraFinal.get(i).cantidad+"\n");
+            resultado+=(compraFinal.get(i).getNombre() +"   "+ compraFinal.get(i).getCodigoBarras()+"   "+compraFinal.get(i).getCantidad()+"   "+compraFinal.get(i).getPrecio()*compraFinal.get(i).getCantidad()+"\n");
         }
         System.out.println(resultado);
 
