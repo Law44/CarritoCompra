@@ -2,7 +2,9 @@ package com.company;
 
 public class Electronica extends Producto{
     private int garantia;
-
+    Electronica(String nombre){
+        this.nombre=nombre;
+    }
     public double getPrecio(){
         return precio;
     }
@@ -27,11 +29,7 @@ public class Electronica extends Producto{
         return codigoBarras;
     }
 
-    public int getGarantia() {
-        return garantia;
-    }
+    public  int getCantidad(){ return cantidad; }
 
-    public void setGarantia(int garantia) {
-        this.garantia = garantia;
-    }
+    public  void setCantidad(int _cantidad ){this.cantidad = _cantidad;  }
 }

@@ -11,6 +11,9 @@ public class Alimentacion extends Producto{
     private LocalDate actual = LocalDate.now();
     private Period diferencia = Period.between(caducidad, actual);
 
+    Alimentacion(String nombre){
+        this.nombre=nombre;
+    }
     public LocalDate getCaducidad() {
         return caducidad;
     }
@@ -24,7 +27,7 @@ public class Alimentacion extends Producto{
     }
 
     public void setPrecio(double precio){
-        this.precio = precio - precio*(1/(diferencia.getDays())) + (precio * 0.1);
+        this.precio = precio - precio*(double)(1/(diferencia.getDays())) + (precio * 0.1);
     }
 
     public void setNombre(String nombre){
@@ -42,4 +45,8 @@ public class Alimentacion extends Producto{
     public String getCodigoBarras(){
         return codigoBarras;
     }
+
+    public  int getCantidad(){ return cantidad; }
+
+    public  void setCantidad( ){this.cantidad = getCantidad()+1;  }
 }
