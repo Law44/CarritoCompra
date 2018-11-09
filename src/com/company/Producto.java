@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.List;
+
 public abstract class Producto {
     public double getPrecio() {
         return precio;
@@ -37,4 +39,7 @@ public abstract class Producto {
     private String nombre;
     private String codigoBarras;
     private int cantidad=1;
+
+
 }
+

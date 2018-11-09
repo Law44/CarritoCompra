@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -36,7 +37,7 @@ public class Management {
     }
 
 
-    public void calcularPrecioTiquet(){
+    public String calcularPrecioTiquet(){
 
         for (int i = 0; i < alimentacions.size(); i++) {
             for (int j = i+1; j < alimentacions.size(); j++) {
@@ -63,7 +64,7 @@ public class Management {
         for (int i = 0; i < textils.size(); i++) {
             for (int j = i+1; j < textils.size(); j++) {
                 if (textils.get(i).getCodigoBarras().equals(textils.get(j).getCodigoBarras())
-                        && textils.get(i).getPrecio() == textils.get(j).getPrecio()){
+                        && (textils.get(i).getPrecio() == textils.get(j).getPrecio())){
                     textils.get(i).setCantidad(textils.get(i).getCantidad()+1);
                     textils.remove(j);
                 }
@@ -79,12 +80,79 @@ public class Management {
         for (int i = 0; i < compraFinal.size(); i++) {
             resultado+=(compraFinal.get(i).getNombre() +"   "+"   "+compraFinal.get(i).getCantidad()+"   "+compraFinal.get(i).getPrecio()+"   " + compraFinal.get(i).getPrecio()*compraFinal.get(i).getCantidad()+"\n");
         }
-        System.out.println(resultado);
+
 
         compraFinal.clear();
         electronicas.clear();
         alimentacions.clear();
         textils.clear();
+        return resultado;
 
+    }
+    public String mostrarCarroCompra(){
+        List<Alimentacion> alimentacionsCopia = new ArrayList<>();
+        alimentacionsCopia.addAll(alimentacions);
+
+        List<Electronica> electronicasCopia = new ArrayList<>();
+        electronicasCopia.addAll(electronicas);
+
+        List<Textil> textilsCopia = new ArrayList<>();
+        textilsCopia.addAll(textils);
+
+        for (int i = 0; i < alimentacionsCopia.size(); i++) {
+            for (int j = i+1; j < alimentacionsCopia.size(); j++) {
+                if (alimentacionsCopia.get(i).getCodigoBarras().equals(alimentacionsCopia.get(j).getCodigoBarras())){
+                    alimentacionsCopia.get(i).setCantidad(alimentacionsCopia.get(i).getCantidad()+1);
+                    alimentacionsCopia.remove(j);
+                }
+            }
+        }
+
+
+
+        for (int i = 0; i < electronicasCopia.size(); i++) {
+            for (int j = i+1; j < electronicasCopia.size(); j++) {
+                if (electronicasCopia.get(i).getCodigoBarras().equals(electronicasCopia.get(j).getCodigoBarras())){
+                    electronicasCopia.get(i).setCantidad(electronicasCopia.get(i).getCantidad()+1);
+                    electronicasCopia.remove(j);
+                }
+            }
+        }
+
+        for (int i = 0; i < textilsCopia.size(); i++) {
+            for (int j = i+1; j < textilsCopia.size(); j++) {
+                if (textilsCopia.get(i).getCodigoBarras().equals(textilsCopia.get(j).getCodigoBarras())){
+                    textilsCopia.get(i).setCantidad(textilsCopia.get(i).getCantidad()+1);
+                    textilsCopia.remove(j);
+                }
+            }
+        }
+
+        compraFinal.addAll(electronicasCopia);
+        compraFinal.addAll(alimentacionsCopia);
+        compraFinal.addAll(textilsCopia);
+
+        String resultado = actualString+"  |  MEGAMERCADOHOME\n" +
+                "----------------------------------------------------\n";
+        for (int i = 0; i < compraFinal.size(); i++) {
+            resultado+=(compraFinal.get(i).getNombre() +"   "+"   "+compraFinal.get(i).getCantidad());
+        }
+        resetearCantidad(compraFinal);
+        compraFinal.clear();
+
+
+
+        return resultado;
+
+
+    }
+
+    public void resetearCantidad(List<Producto> list){
+
+        for (int i = 0; i < list.size(); i++) {
+
+            list.get(i).setCantidad(1);
+
+        }
     }
 }

@@ -16,10 +16,11 @@ public class Menu {
                 }while (op2!=4);
                 break;
             case 2:
-                management.calcularPrecioTiquet();
+                System.out.println(management.calcularPrecioTiquet());
 
                 break;
             case 3:
+                System.out.println(management.mostrarCarroCompra());
                 /*Mostrar el carro*/
                 break;
             case 4:

@@ -9,7 +9,7 @@ public  class Widget {
         int resultado;
 
         linea=text.split(",");
-
+        System.out.println(linea[0]);
         for (int i = 1; i < linea.length; i++) {
             System.out.println(i+"-"+linea[i]);
         }
