@@ -12,11 +12,16 @@ public class Alimentacion extends Producto{
     private LocalDate actual = LocalDate.parse(actualString, formatter);
     private Period diferencia;
 
-    public Alimentacion(String _nombre,Double _precio, String caducidad, String _codigoBarras) {
+    public Alimentacion(String _nombre,double _precio, String caducidad, String _codigoBarras) {
         setNombre(_nombre);
         this.caducidad = LocalDate.parse(caducidad, formatter);
         diferencia = Period.between(this.caducidad, actual);
-        setPrecio(_precio /*- precio*(double)(1/(diferencia.getDays())) + (precio * 0.1)*/);
+
+        int diferenciaDias  = diferencia.getDays();
+        System.out.println(diferenciaDias);
+
+        System.out.println(diferenciaDias);
+        setPrecio(_precio - ((_precio * (double)(1/(diferenciaDias+1)) + (_precio * 0.1))));
         setCodigoBarras(_codigoBarras);
 
     }

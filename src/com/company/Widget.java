@@ -36,7 +36,7 @@ public  class Widget {
         return sc.nextLine();
     }
 
-    static Double introDouble(String text){
+    static double introDouble(String text){
         double resultado = 0;
         System.out.println(text);
         String resultadoSt= sc.nextLine();
