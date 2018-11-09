@@ -6,7 +6,7 @@ public class Electronica extends Producto{
     public Electronica(String _nombre,double _precio, int _garantia, String _codigoBarras) {
         super.setNombre(_nombre);
         this.garantia = _garantia;
-        super.setPrecio(  _precio + (_precio * (double)(garantia/365)*0.1));
+        super.setPrecio(  _precio + _precio * (double)(garantia/365)*0.1);
         super.setCodigoBarras( _codigoBarras);
     }
     public double getPrecio(){
