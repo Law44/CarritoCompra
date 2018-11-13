@@ -8,7 +8,9 @@ public abstract class Producto {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        double roundOff = Math.round(precio * 100.0) / 100.0;
+        this.precio =
+                roundOff;
     }
 
     public String getNombre() {
