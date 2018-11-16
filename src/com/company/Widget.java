@@ -1,8 +1,11 @@
 package com.company;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public  class Widget {
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     static Scanner sc = new Scanner(System.in);
     static String[] linea;
     static int menuNumero(String text){
@@ -64,6 +67,18 @@ public  class Widget {
             resultado = Integer.parseInt(resultadoSt);
         }catch (Exception IO){
             resultado=-1;
+        }
+
+        return resultado;
+    }
+    public static String introFecha(String text) {
+        System.out.println(text);
+        String resultado=sc.nextLine();
+        try {
+            LocalDate.parse(resultado, formatter);
+        }catch (Exception IO){
+           errorMenu();
+           introFecha(text);
         }
 
         return resultado;

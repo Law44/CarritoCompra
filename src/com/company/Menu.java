@@ -42,7 +42,7 @@ public class Menu {
             case 1:
                 management.AñadirAlimento(Widget.introString("Introduce el nombre del alimento"),
                         Widget.introDouble("Introduce el precio del alimento (Formato 00.00)"),
-                        Widget.introString("Introduce la fecha de caducidad del alimento (Formato: dd/mm/yyyy)"),
+                        Widget.introFecha("Introduce la fecha de caducidad del alimento (Formato: dd/mm/yyyy)"),
                         Widget.introString("Introduce el codigo de barras del alimento")
                         );
                 break;
